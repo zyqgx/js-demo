@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+    <div id="app">
+        <img id="avatar" src="" alt="">
+        <a id="aaa" href="">blog</a>
+    </div>
+
+   <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> 
+   <script type="text/javascript">
+      $.ajax({
+          url: 'https://api.github.com/users/defunkt',
+          type: 'GET'
+      })
+      .done(function(res) {
+          console.log(res);
+          $('#avatar').attr('src', res.avatar_url);
+          $('#aaa').attr('href', res.blog);
+          console.log("success");
+      });
+      
+</script>
+</body>
+</html>
