@@ -6,22 +6,33 @@
 </head>
 <body>
     <div id="app">
-        <img id="avatar" src="" alt="">
-        <a id="aaa" href="">blog</a>
+        <img id="avatar" :src="{{avatar_url}}" alt="">
+        <a id="aaa" href="{{blog}}">blog</a>
     </div>
 
    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> 
+   <script src="https://cdn.bootcss.com/vue/2.2.3/vue.min.js"></script>
    <script type="text/javascript">
-      $.ajax({
-          url: 'https://api.github.com/users/defunkt',
-          type: 'GET'
-      })
-      .done(function(res) {
-          console.log(res);
-          $('#avatar').attr('src', res.avatar_url);
-          $('#aaa').attr('href', res.blog);
-          console.log("success");
-      });
+   var app = new Vue({
+      el: '#app',
+      data: {
+        avatar_url: 'qqq',
+        blog: 'qqq'
+      },
+      mounted(){
+        var that = this;
+      //   $.ajax({
+      //     url: 'https://api.github.com/users/defunkt',
+      //     type: 'GET'
+      // })
+      // .done(function(res) {
+      //     console.log(res);
+      //     that.avatar_url =  res.avatar_url;
+      //     that.blog = res.blog;
+      // });
+      }
+    })
+      
       
 </script>
 </body>
