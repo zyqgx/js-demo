@@ -17,31 +17,34 @@
         <input type="checkbox" name="hobby" id="hobby5"> 打球
         <input type="checkbox" name="hobby" id="hobby6"> 跑步
         <br>
-        <input type="button" name="checkall" value="全选" onclick="checkall();">
+        <input type="button" id="checkall112" value="全选" onclick="checkall()">
         <input type="button" value="全不选" onclick="clearall();">
         <p>请输入您要选择爱好的序号，序号为1-6:</p>
         <input id="wb" name="wb" type="text">
         <input name="ok" type="button" value="确定" onclick="checkone();">
     </form>
     <script type="text/javascript">
+    
     var check_all = 0;
-
     function checkall() {
-
-        if (1 == check_all) {
+       
+       var checkbtn = document.getElementById("checkall112"); 
+       if (1 == check_all) {
             check_all = 0;
+            checkbtn.value = "全选";
             clearall();
-            
+
             return;
         }
         check_all = 1;
+        checkbtn.value = "全不选";
         var hobby1 = document.getElementsByName("hobby");
         // 任务1 
 
         for (i = 0; i <= hobby1.length; i++) {
-          
-                hobby1[i].checked = true;
-            
+
+            hobby1[i].checked = true;
+
         }
 
     }
