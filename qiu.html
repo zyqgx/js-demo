@@ -33,55 +33,17 @@
         width: 80px;
         height: 40px;
     }
-    </style> 
-       
     </style>
-    <script type="text/javascript">
-    	window.onload = function(){
-    		var lis = document.getElementsByTagName('li');
-    		var boxs = document.getElementsByClassName('box');
-
-    		
-    		(function(i){
-    				lis[i].onclick = function(e){
-    					lis[0].setAttribute('class', 'active');
-    					boxs[0].setAttribute('class', 'box on');
-    					lis[1].setAttribute('class', '');
-    					boxs[1].setAttribute('class', 'box');
-    					lis[2].setAttribute('class', '');
-    					boxs[2].setAttribute('class', 'box');
-    				}
-    			})(0);
-    			(function(i){
-    				lis[i].onclick = function(e){
-    					for (var j = 0; j < lis.length; j++){
-    						if(i == j){
-    							lis[j].setAttribute('class', 'active');
-    							boxs[j].setAttribute('class', 'box on');
-    						}else{
-    							lis[j].setAttribute('class', '');
-    							boxs[j].setAttribute('class', 'box');
-    						}
-    					}
-    					
-    				}
-    			})(1);
-    			(function(i){
-    				lis[i].onclick = function(e){
-    					for (var j = 0; j < lis.length; j++){
-    						if(i == j){
-    							lis[j].setAttribute('class', 'active');
-    							boxs[j].setAttribute('class', 'box on');
-    						}else{
-    							lis[j].setAttribute('class', '');
-    							boxs[j].setAttribute('class', 'box');
-    						}
-    					}
-    					
-    				}
-    			})(2);
-
-    	}     
+ 	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+ 	
+    <script>
+    	  $(function(){
+				$('li').click(function(e){
+						var index = $(this).index();
+						$(this).addClass('active').siblings().removeClass('active')
+						$('.box').eq(index).addClass('on').siblings().removeClass('on');
+					})
+    	  	});
     </script>
  
 </head>
